@@ -29,8 +29,8 @@ module.exports = stampit()
 
         var start = pdu.readUInt16BE(1)
         var quantity = pdu.readUInt16BE(3)
-        var byteCount = pdu.readUInt8(5)
-
+        // var byteCount = pdu.readUInt8(5)
+        var byteCount = pdu.slice(6);
         this.emit('preWriteMultipleCoilsRequest', start, quantity, byteCount)
 
         var mem = this.getCoils()
